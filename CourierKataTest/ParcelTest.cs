@@ -40,6 +40,14 @@ namespace CourierKataTest
             Parcel[] parcels = { XLParcel };
             Assert.AreEqual(courier.processParcel(parcels, false), "XL Parcel: $25. Total Cost: $25");
         }
+        [TestMethod]
+        public void processParcelHeavyParcelTest()
+        {
+            Parcel HeavyParcel = new Parcel(5, 5, 5, 51);
+            Courier courier = new Courier();
+            Parcel[] parcels = { HeavyParcel };
+            Assert.AreEqual(courier.processParcel(parcels, false), "Heavy Parcel: $50. Total Cost: $50");
+        }
 
         [TestMethod]
         public void processParcelSmallOverweightTest()

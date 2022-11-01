@@ -44,6 +44,11 @@ namespace CourierKataLibrary
                 ParcelType = ParcelType.XL;
                 Cost = 25;
             }
+            if (Weight > 50)
+            {
+                ParcelType = ParcelType.Heavy;
+                Cost = 50;
+            }
         }
 
         private void setWeight()
