@@ -7,6 +7,7 @@ namespace CourierKataLibrary
         public string processParcel(Parcel[] parcels, bool speedyShipping)
         {
             smallParcelDiscount(parcels);
+            mediumParcelDiscount(parcels);
 
             StringBuilder sb = new StringBuilder();
             int totalCost = 0;
@@ -40,7 +41,19 @@ namespace CourierKataLibrary
             }
         }
 
+        private void mediumParcelDiscount(Parcel[] parcels)
+        {
+            int Counter = 1;
+            for (int i = 0; i < parcels.Length; i++)
+            {
+                if (parcels[i].ParcelType == ParcelType.Medium)
+                {
 
+                    if (Counter % 3 == 0) parcels[i].Cost = 0;
+                    Counter++;
+                }
+            }
+        }
 
     }
 

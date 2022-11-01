@@ -21,5 +21,18 @@ namespace CourierKataTest
             Parcel[] parcels = { smallParcel, smallParcel2, smallParcel3, smallParcel4 };
             Assert.AreEqual(courier.processParcel(parcels, false), "Small Parcel: $3Small Parcel: $3Small Parcel: $0Small Parcel: $3. Total Cost: $9");
         }
+
+        [TestMethod]
+        public void ThirdMediumParcelFreeTest()
+        {
+            Parcel mediumParcel = new Parcel(5, 5, 1, 0);
+            Parcel mediumParcel2 = new Parcel(5, 5, 1, 0);
+            Parcel mediumParcel3 = new Parcel(5, 5, 1, 0);
+            Parcel mediumParcel4 = new Parcel(5, 5, 1, 0);
+            Parcel mediumParcel5 = new Parcel(5, 5, 1, 0);
+            Courier courier = new Courier();
+            Parcel[] parcels = { mediumParcel, mediumParcel2, mediumParcel3, mediumParcel4, mediumParcel5 };
+            Assert.AreEqual(courier.processParcel(parcels, false), "Medium Parcel: $8Medium Parcel: $8Medium Parcel: $0Medium Parcel: $8Medium Parcel: $8. Total Cost: $32");
+        }
     }
 }
