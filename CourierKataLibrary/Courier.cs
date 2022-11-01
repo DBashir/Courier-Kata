@@ -25,7 +25,7 @@ namespace CourierKataLibrary
         }
 
         //TODO change logic to use a mixture of discounts to get the best value
-        private int bestDiscount(Parcel[] parcels)
+        private void bestDiscount(Parcel[] parcels)
         {
             Parcel[] smallParcels = smallParcelDiscount(parcels);
             int smallDiscountTotal = 0;
