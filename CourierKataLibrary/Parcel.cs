@@ -23,6 +23,7 @@ namespace CourierKataLibrary
         {
             if (Dimension < 10)
             {
+                ParcelType = ParcelType.Small;
                 Cost = 3;
             }
             else if (Dimension < 50)
