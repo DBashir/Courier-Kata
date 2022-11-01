@@ -6,9 +6,7 @@ namespace CourierKataLibrary
     {
         public string processParcel(Parcel[] parcels, bool speedyShipping)
         {
-            //smallParcelDiscount(parcels);
-            //mediumParcelDiscount(parcels);
-            mixedParcelDiscount(parcels);
+            bestDiscount(parcels);
 
             StringBuilder sb = new StringBuilder();
             int totalCost = 0;
@@ -26,7 +24,34 @@ namespace CourierKataLibrary
             return sb.ToString();
         }
 
-        private void smallParcelDiscount(Parcel[] parcels)
+        //TODO change logic to use a mixture of discounts to get the best value
+        private int bestDiscount(Parcel[] parcels)
+        {
+            Parcel[] smallParcels = smallParcelDiscount(parcels);
+            int smallDiscountTotal = 0;
+            foreach (Parcel parcel in smallParcels)
+            {
+                smallDiscountTotal += parcel.Cost;
+            }
+
+            Parcel[] mediumParcels = mediumParcelDiscount(parcels);
+            int mediumDiscountTotal = 0;
+            foreach (Parcel parcel in mediumParcels)
+            {
+                mediumDiscountTotal += parcel.Cost;
+            }
+
+            Parcel[] mixedParcels = mixedParcelDiscount(parcels);
+            int mixedDiscountTotal = 0;
+            foreach (Parcel parcel in mixedParcels)
+            {
+                mixedDiscountTotal += parcel.Cost;
+            }
+
+
+        }
+
+        private Parcel[] smallParcelDiscount(Parcel[] parcels)
         {
             int Counter = 1;
             for (int i = 0; i < parcels.Length; i++)
@@ -40,9 +65,10 @@ namespace CourierKataLibrary
                     }
                 }
             }
+            return parcels;
         }
 
-        private void mediumParcelDiscount(Parcel[] parcels)
+        private Parcel[] mediumParcelDiscount(Parcel[] parcels)
         {
             int Counter = 1;
             for (int i = 0; i < parcels.Length; i++)
@@ -54,9 +80,10 @@ namespace CourierKataLibrary
                     Counter++;
                 }
             }
+            return parcels;
         }
 
-        private void mixedParcelDiscount(Parcel[] parcels)
+        private Parcel[] mixedParcelDiscount(Parcel[] parcels)
         {
             int Counter = 1;
             for (int i = 0; i < parcels.Length; i++)
@@ -64,6 +91,7 @@ namespace CourierKataLibrary
                 if (Counter % 5 == 0) parcels[i].Cost = 0;
                 Counter++;
             }
+            return parcels;
         }
 
     }
