@@ -28,14 +28,17 @@ namespace CourierKataLibrary
             }
             else if (Dimension < 50)
             {
+                ParcelType = ParcelType.Medium;
                 Cost = 8;
             }
             else if (Dimension < 100)
             {
+                ParcelType = ParcelType.Large;
                 Cost = 15;
             }
             else if (Dimension >= 100)
             {
+                ParcelType = ParcelType.XL;
                 Cost = 25;
             }
         }
