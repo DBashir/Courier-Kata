@@ -11,12 +11,15 @@ namespace CourierKataLibrary
         public int Dimension { get; set; }
         public int Cost { get; set; }
         public ParcelType ParcelType { get; set; }
+        public int Weight { get; set; }
 
 
-        public Parcel(int length, int width, int height)
+        public Parcel(int length, int width, int height, int weight)
         {
             Dimension = length * width * height;
+            Weight = weight;
             setCost();
+            setWeight();
         }
 
         private void setCost()
@@ -40,6 +43,27 @@ namespace CourierKataLibrary
             {
                 ParcelType = ParcelType.XL;
                 Cost = 25;
+            }
+        }
+
+        private void setWeight()
+        {
+            int overWeightLimit = 2;
+            if(ParcelType == ParcelType.Small && Weight > 1)
+            {
+                Cost += (Weight - 1) * overWeightLimit;
+            }
+            else if (ParcelType == ParcelType.Medium && Weight > 3)
+            {
+                Cost += (Weight - 3) * overWeightLimit;
+            }
+            else if (ParcelType == ParcelType.Large && Weight > 6)
+            {
+                Cost += (Weight - 6) * overWeightLimit;
+            }
+            else if (ParcelType == ParcelType.XL && Weight > 10)
+            {
+                Cost += (Weight - 10) * overWeightLimit;
             }
         }
     }
