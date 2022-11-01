@@ -4,7 +4,7 @@ namespace CourierKataLibrary
 {
     public class Courier
     {
-        public string processParcel(Parcel[] parcels)
+        public string processParcel(Parcel[] parcels, bool speedyShipping)
         {
             StringBuilder sb = new StringBuilder();
             int totalCost = 0;
@@ -15,6 +15,10 @@ namespace CourierKataLibrary
                 totalCost += parcels[i].Cost;
             }
             sb.Append(". Total Cost: $" + totalCost);
+            if (speedyShipping)
+            {
+                sb.Append(". Speedy Shipping: $" + totalCost * 2);
+            }
             return sb.ToString();
         }
 

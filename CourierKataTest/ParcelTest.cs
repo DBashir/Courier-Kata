@@ -11,7 +11,7 @@ namespace CourierKataTest
             Parcel smallParcel = new Parcel(1,1,1);
             Courier courier = new Courier();
             Parcel[] parcels = { smallParcel };
-            Assert.AreEqual(courier.processParcel(parcels), "Small Parcel: $3. Total Cost: $3");
+            Assert.AreEqual(courier.processParcel(parcels, false), "Small Parcel: $3. Total Cost: $3");
         }
 
         [TestMethod]
@@ -20,7 +20,7 @@ namespace CourierKataTest
             Parcel mediumParcel = new Parcel(5, 5, 1);
             Courier courier = new Courier();
             Parcel[] parcels = { mediumParcel };
-            Assert.AreEqual(courier.processParcel(parcels), "Medium Parcel: $8. Total Cost: $8");
+            Assert.AreEqual(courier.processParcel(parcels, false), "Medium Parcel: $8. Total Cost: $8");
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace CourierKataTest
             Parcel largeParcel = new Parcel(5, 5, 3);
             Courier courier = new Courier();
             Parcel[] parcels = { largeParcel };
-            Assert.AreEqual(courier.processParcel(parcels), "Large Parcel: $15. Total Cost: $15");
+            Assert.AreEqual(courier.processParcel(parcels, false), "Large Parcel: $15. Total Cost: $15");
         }
 
         [TestMethod]
@@ -38,7 +38,7 @@ namespace CourierKataTest
             Parcel XLParcel = new Parcel(5, 5, 5);
             Courier courier = new Courier();
             Parcel[] parcels = { XLParcel };
-            Assert.AreEqual(courier.processParcel(parcels), "XL Parcel: $25. Total Cost: $25");
+            Assert.AreEqual(courier.processParcel(parcels, false), "XL Parcel: $25. Total Cost: $25");
         }
     }
 }
