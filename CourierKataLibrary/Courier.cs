@@ -26,19 +26,21 @@ namespace CourierKataLibrary
 
         private void smallParcelDiscount(Parcel[] parcels)
         {
-            int Counter = 0;
+            int Counter = 1;
             for (int i = 0; i < parcels.Length; i++)
             {
-                if (i == 0) Counter = 1;
-                Counter++;
                 if (parcels[i].ParcelType == ParcelType.Small)
                 {
-                    if (Counter % 4 == 0) parcels[i].Cost = 0;
+                    Counter++;
+                    if (Counter % 4 == 0)
+                    {
+                        parcels[i].Cost = 0;
+                    }
                 }
             }
-            return;
-
         }
+
+
 
     }
 
