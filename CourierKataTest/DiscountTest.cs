@@ -34,5 +34,23 @@ namespace CourierKataTest
             Parcel[] parcels = { mediumParcel, mediumParcel2, mediumParcel3, mediumParcel4, mediumParcel5 };
             Assert.AreEqual(courier.processParcel(parcels, false), "Medium Parcel: $8Medium Parcel: $8Medium Parcel: $0Medium Parcel: $8Medium Parcel: $8. Total Cost: $32");
         }
+
+        [TestMethod]
+        public void EveryFifthParcelFreeTest()
+        {
+            Parcel smallParcel = new Parcel(1, 1, 1, 0);
+            Parcel smallParcel2 = new Parcel(1, 1, 1, 0);
+            Parcel smallParcel3 = new Parcel(1, 1, 1, 0);
+            Parcel smallParcel4 = new Parcel(1, 1, 1, 0);
+            Parcel smallParcel5 = new Parcel(1, 1, 1, 0);
+            Parcel mediumParcel = new Parcel(5, 5, 1, 0);
+            Parcel mediumParcel2 = new Parcel(5, 5, 1, 0);
+            Parcel mediumParcel3 = new Parcel(5, 5, 1, 0);
+            Parcel mediumParcel4 = new Parcel(5, 5, 1, 0);
+            Parcel mediumParcel5 = new Parcel(5, 5, 1, 0);
+            Courier courier = new Courier();
+            Parcel[] parcels = { smallParcel, smallParcel2, smallParcel3, smallParcel4, smallParcel5,  mediumParcel, mediumParcel2, mediumParcel3, mediumParcel4, mediumParcel5 };
+            Assert.AreEqual(courier.processParcel(parcels, false), "Small Parcel: $3Small Parcel: $3Small Parcel: $3Small Parcel: $3Small Parcel: $0Medium Parcel: $8Medium Parcel: $8Medium Parcel: $8Medium Parcel: $8Medium Parcel: $0. Total Cost: $44");
+        }
     }
 }

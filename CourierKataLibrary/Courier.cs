@@ -6,8 +6,9 @@ namespace CourierKataLibrary
     {
         public string processParcel(Parcel[] parcels, bool speedyShipping)
         {
-            smallParcelDiscount(parcels);
-            mediumParcelDiscount(parcels);
+            //smallParcelDiscount(parcels);
+            //mediumParcelDiscount(parcels);
+            mixedParcelDiscount(parcels);
 
             StringBuilder sb = new StringBuilder();
             int totalCost = 0;
@@ -52,6 +53,16 @@ namespace CourierKataLibrary
                     if (Counter % 3 == 0) parcels[i].Cost = 0;
                     Counter++;
                 }
+            }
+        }
+
+        private void mixedParcelDiscount(Parcel[] parcels)
+        {
+            int Counter = 1;
+            for (int i = 0; i < parcels.Length; i++)
+            {
+                if (Counter % 5 == 0) parcels[i].Cost = 0;
+                Counter++;
             }
         }
 
