@@ -54,6 +54,7 @@ namespace CourierKataLibrary
         private void setWeight()
         {
             int overWeightLimit = 2;
+            int heavyOverweightLimit = 1;
             if(ParcelType == ParcelType.Small && Weight > 1)
             {
                 Cost += (Weight - 1) * overWeightLimit;
@@ -69,6 +70,10 @@ namespace CourierKataLibrary
             else if (ParcelType == ParcelType.XL && Weight > 10)
             {
                 Cost += (Weight - 10) * overWeightLimit;
+            }
+            else if (ParcelType == ParcelType.Heavy && Weight > 50)
+            {
+                Cost += (Weight - 50) * heavyOverweightLimit;
             }
         }
     }
